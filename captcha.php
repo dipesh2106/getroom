@@ -1,0 +1,19 @@
+<?php
+session_start();
+$n=rand(1,9);
+$c=array("A","D","R","T","V","N","M","K","G");
+$n1=rand(1,9);
+$lc=array("e","h","m","v","x","q","w","r","u");
+$sc=array("@","!","#","$","?","&");
+$txt=$n.$c[rand(0,8)].$n1.$lc[rand(0,8)].$sc[rand(0,5)].$n;
+$_SESSION['cap']=$txt;
+header("content-type: image/jpeg");
+$x=100;
+$y=30;
+$f=14;
+$img=imagecreate($x,$y);
+imagecolorallocate($img,25,184,223);
+$wh=imagecolorallocate($img,0,0,0);
+imagefttext($img,$f,5,10,25,$wh,"CENTURY.TTF",$txt);
+imagejpeg($img,null,40);
+?>
